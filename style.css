@@ -72,22 +72,22 @@ li {
     align-items: center;
 }
 
-li.completed span {
+li.completed > span {
     text-decoration: line-through;
     color: gray;
 }
 
-li.importante span {
+li.importante > span {
     color: red;
     font-weight: bold;
 }
 
-li.média span {
+li.média > span {
     color: orange;
     font-weight: bold;
 }
 
-li.normal span {
+li.normal > span {
     color: green;
     font-weight: bold;
 }
