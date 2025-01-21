@@ -15,7 +15,6 @@ function addTask() {
     checkbox.type = 'checkbox';
     checkbox.addEventListener('change', () => {
         li.classList.toggle('completed');
-        saveTasks();
     });
 
     // criação do elemento para identificar a tarefa
@@ -25,7 +24,7 @@ function addTask() {
     // criação do elemento para exibir a categoria da tarefa (nivel de importancia)
     const priorityMenu = document.createElement('div');
     priorityMenu.className = 'priority-menu';
-    priorityMenu.innerHTML = '...';
+    priorityMenu.innerHTML = 'Classe';
     const menu = document.createElement('div');
     menu.className = 'menu';
 
@@ -36,7 +35,6 @@ function addTask() {
         option.className = priority.toLowerCase();
         option.addEventListener('click', () => {
             li.className = 'task ' + priority.toLowerCase();
-            saveTasks();
         });
         menu.appendChild(option);
     });
@@ -47,12 +45,21 @@ function addTask() {
     deleteButton.textContent = 'Excluir';
     deleteButton.addEventListener('click', () => {
         taskList.removeChild(li);
-        saveTasks();
     });
+
+    // elemento para editar tarefa
+    const editButton = document.createElement('button')
+    editButton.textContent = "✎"
+    editButton.addEventListener('click', ()=>{
+        const editable = document.createElement("input")
+        editable.value = span.textContent
+        span.parentNode.replaceChild(editable, span)
+    })
 
     // exibindo os elementos criados na tela
     li.appendChild(checkbox);
     li.appendChild(span);
+    li.appendChild(editButton)
     li.appendChild(priorityMenu);
     li.appendChild(deleteButton);
     taskList.appendChild(li);
@@ -84,7 +91,6 @@ function loadTasks() {
     // converte o Json com as tarefas para um array novamente 
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-
     // implementação da logica para exibir os elementos salvos em tela
     tasks.forEach(taskData => {
         const li = document.createElement('li');
@@ -95,7 +101,7 @@ function loadTasks() {
         checkbox.checked = taskData.completed;
         checkbox.addEventListener('change', () => {
             li.classList.toggle('completed');
-            saveTasks();
+            
         });
 
         const span = document.createElement('span');
@@ -103,7 +109,7 @@ function loadTasks() {
 
         const priorityMenu = document.createElement('div');
         priorityMenu.className = 'priority-menu';
-        priorityMenu.innerHTML = '...';
+        priorityMenu.innerHTML = 'classe';
         const menu = document.createElement('div');
         menu.className = 'menu';
 
@@ -124,7 +130,7 @@ function loadTasks() {
         deleteButton.textContent = 'Excluir';
         deleteButton.addEventListener('click', () => {
             taskList.removeChild(li);
-            saveTasks();
+            
         });
 
         if (taskData.completed) {
@@ -137,6 +143,7 @@ function loadTasks() {
         li.appendChild(deleteButton);
         taskList.appendChild(li);
     });
+    saveTasks()
 }
 
 // carrega as tarefas caso existam assim que o usuario entra no programa
