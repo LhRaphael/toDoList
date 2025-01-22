@@ -25,7 +25,7 @@ form > button{
     padding: 20px;
     border-radius: 10px;
     text-align: center;
-    width: 40vw;
+    width: 60vw;
     display: grid;
 }
 
@@ -68,26 +68,31 @@ li {
     border-bottom: 1px dashed #ccc;
     font-family: 'Courier New', Courier, monospace;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     align-items: center;
 }
 
-li.completed > span {
+
+li.incompleto > span{
+    text-decoration: none;
+    color: #333;
+}
+li.completo > span {
     text-decoration: line-through;
     color: gray;
 }
 
-li.importante > span {
+li.urgente span {
     color: red;
     font-weight: bold;
 }
 
-li.média > span {
+li.importante span {
     color: orange;
     font-weight: bold;
 }
 
-li.normal > span {
+li.normal span {
     color: green;
     font-weight: bold;
 }
@@ -126,11 +131,11 @@ li.normal > span {
     background: #f0f0f0;
 }
 
-.menu div.importante {
+.menu div.urgente {
     color: red;
 }
 
-.menu div.média {
+.menu div.importante {
     color: orange;
 }
 
