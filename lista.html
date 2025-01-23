@@ -5,10 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/icons8-ice-80.png" type="image/x-icon">
 </head>
 <body>
+    <header>
+        <h1>Freljord TDS</h1>
+        <nav>
+            <ul>
+                <li onclick="home()">Home</li>
+                <li onclick="criadores()">Criadores</li>
+                <li onclick="github()">GitHub</li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="todo-container">
-        <h1>To-Do List</h1>
+        <h2>To-Do List</h2>
         <div class="input-container">
             <input type="text" id="taskInput" placeholder="Adicione uma tarefa..." onkeydown="if(event.key === 'Enter') adicionar()">
             <button onclick="adicionar()">Adicionar</button>

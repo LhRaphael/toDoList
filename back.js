@@ -71,7 +71,7 @@ function carregarTarefas(){
 
         const menuPrioridade = document.createElement("div")
         menuPrioridade.className = 'priority-menu'
-        menuPrioridade.innerHTML = '!'
+        menuPrioridade.innerHTML = 'prioridade'
         const menu = document.createElement('div')
         menu.className = 'menu'
 
@@ -94,7 +94,8 @@ function carregarTarefas(){
         menuPrioridade.appendChild(menu)
 
         const modificarBotao = document.createElement('button')
-        modificarBotao.textContent = 'md'
+        modificarBotao.innerHTML = '<img src="./assets/pencil.png"></img>'
+        modificarBotao.className = 'mdBotao'
 
         modificarBotao.addEventListener('click',()=>{
             const entrada = document.createElement('input')
@@ -183,5 +184,21 @@ function modificarTarefa(item, novoNome){
     salvarLista(listaTarefa)
     
 }
+
+
+// funções para o menu de navegação
+
+function home(){
+    window.location.href = "./lista.html"
+}
+
+function criadores(){
+    window.location.href = "./criadores.html"
+}
+
+function github(){
+    window.location.href = "https://github.com/LhRaphael/toDoList"
+}
+
 
 document.addEventListener('DOMContentLoaded', carregarTarefas)
